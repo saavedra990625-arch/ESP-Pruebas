@@ -7,3 +7,4 @@ ID:39 , Fecha:2026-04-13 15:44:41 , TiempoESP:612176 ms , Aleatorio:10
 ID:40 , Fecha:2026-04-13 15:49:45 , TiempoESP:915954 ms , Aleatorio:65
 ID:41 , Fecha:2026-04-13 15:54:48 , TiempoESP:1219747 ms , Aleatorio:63
 ID:42 , Fecha:2026-04-13 15:59:52 , TiempoESP:1523586 ms , Aleatorio:26
+ID:43 , Fecha:2026-04-13 16:04:56 , TiempoESP:1827426 ms , Aleatorio:98
