@@ -6,3 +6,4 @@ ID:2 | Fecha:2026-04-13 13:06:25 | TiempoESP:310449 ms | Aleatorio:80
 ID:3 | Fecha:2026-04-13 13:06:59 | TiempoESP:6226 ms | Aleatorio:21
 ID:4 | Fecha:2026-04-13 13:12:03 | TiempoESP:310162 ms | Aleatorio:38
 ID:5 | Fecha:2026-04-13 13:12:51 | TiempoESP:6702 ms | Aleatorio:56
+ID:6 | Fecha:2026-04-13 13:13:32 | TiempoESP:5213 ms | Aleatorio:41
