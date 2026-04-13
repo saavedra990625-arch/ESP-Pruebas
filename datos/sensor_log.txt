@@ -4,3 +4,4 @@ ID:36 , Fecha:2026-04-13 15:32:31 , TiempoESP:309426 ms , Aleatorio:15
 ID:37 , Fecha:2026-04-13 15:34:33 , TiempoESP:4731 ms , Aleatorio:94
 ID:38 , Fecha:2026-04-13 15:39:37 , TiempoESP:308446 ms , Aleatorio:4
 ID:39 , Fecha:2026-04-13 15:44:41 , TiempoESP:612176 ms , Aleatorio:10
+ID:40 , Fecha:2026-04-13 15:49:45 , TiempoESP:915954 ms , Aleatorio:65
