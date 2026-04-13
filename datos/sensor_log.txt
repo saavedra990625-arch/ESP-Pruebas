@@ -18,3 +18,4 @@ ID:22 | Fecha:2026-04-13 14:26:33 | TiempoESP:4259282 ms | Aleatorio:100
 ID:23 | Fecha:2026-04-13 14:31:37 | TiempoESP:4562993 ms | Aleatorio:89
 ID:24 | Fecha:2026-04-13 14:36:41 | TiempoESP:4866831 ms | Aleatorio:16
 ID:25 | Fecha:2026-04-13 14:41:45 | TiempoESP:5170566 ms | Aleatorio:90
+ID:26 | Fecha:2026-04-13 14:46:49 | TiempoESP:5474406 ms | Aleatorio:89
