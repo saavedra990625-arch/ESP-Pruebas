@@ -42,3 +42,4 @@ ID:75 , Fecha:2026-04-13 18:42:56 , TiempoESP:11308461 ms , Aleatorio:43
 ID:76 , Fecha:2026-04-13 18:48:00 , TiempoESP:11612347 ms , Aleatorio:43
 ID:77 , Fecha:2026-04-13 18:53:04 , TiempoESP:11916171 ms , Aleatorio:86
 ID:376 , Fecha:2026-04-14 01:02:49 , TiempoESP:2237 ms , Aleatorio:67
+ID:378 , Fecha:2026-04-14 01:11:11 , TiempoESP:367860 ms , Aleatorio:80
