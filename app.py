@@ -16,7 +16,7 @@ st.set_page_config(page_title="Monitor ESP32", layout="wide")
 TOKEN = "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"
 REPO = "saavedra990625-arch/ESP-Pruebas"
 PATH = "datos/reporte_esp32.csv"
-BRANCH = "main"
+BRANCH = "master"
 # Esta es la dirección final que la computadora usará para descargar el archivo crudo.
 URL_RAW = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{PATH}"
 
