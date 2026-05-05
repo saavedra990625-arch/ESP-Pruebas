@@ -6,18 +6,14 @@ import requests              # Sirve para entrar a internet y descargar cosas
 import io                    # Ayuda a leer el texto que descargamos de internet como si fuera un archivo físico.
 import time                  # Nos permite manejar el tiempo, como hacer pausas o saber la hora actual.
 
-# ========== CONFIGURACION DE LA PAGINA ==========
-# Le decimos a Streamlit que el título de la pestaña del navegador sea "Monitor ESP32" 
-# y que use todo el ancho de la pantalla (layout="wide").
+# ========== CONFIGURACION ==========
 st.set_page_config(page_title="Monitor ESP32", layout="wide")
 
-# --- 2. CREDENCIALES DE GITHUB ---
-# Aquí guardamos las "llaves" y la "dirección" exacta de donde viven tus datos.
-TOKEN = "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"
+# Si GitHub canceló tu token por seguridad, puedes dejarlo en blanco así: "" (si tu repo es público)
+TOKEN = "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" 
 REPO = "saavedra990625-arch/ESP-Pruebas"
 PATH = "datos/reporte_esp32.csv"
-BRANCH = "master"
-# Esta es la dirección final que la computadora usará para descargar el archivo crudo.
+BRANCH = "main" # <--- DEBE SER MAIN
 URL_RAW = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{PATH}"
 
 # Ponemos el título principal en nuestra página web
