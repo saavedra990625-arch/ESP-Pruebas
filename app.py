@@ -10,7 +10,7 @@ import time                  # Nos permite manejar el tiempo, como hacer pausas 
 st.set_page_config(page_title="Monitor ESP32", layout="wide")
 
 # Si GitHub canceló tu token por seguridad, puedes dejarlo en blanco así: "" (si tu repo es público)
-TOKEN = "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" 
+TOKEN = " " 
 REPO = "saavedra990625-arch/ESP-Pruebas"
 PATH = "datos/reporte_esp32.csv"
 BRANCH = "main" # <--- DEBE SER MAIN
