@@ -12,9 +12,9 @@ st.set_page_config(page_title="Panel de Control en Vivo - Monitoreo ESP32", layo
 URL_RAW = "https://raw.githubusercontent.com/saavedra990625-arch/ESP-Pruebas/main/datos/reporte_esp32.csv"
 
 # ========== FUNCION PARA DESCARGAR DATOS ==========
+# ========== FUNCION PARA DESCARGAR DATOS ==========
 def cargar_datos():
     try:
-        # Hacemos la petición totalmente pública, SIN 'headers' ni contraseñas
         respuesta = requests.get(URL_RAW)
         
         if respuesta.status_code == 200:
@@ -25,6 +25,12 @@ def cargar_datos():
                 header=None, 
                 names=['Fecha', 'Voltaje (V)', 'Corriente (mA)']
             )
+            
+            # --- AGREGAR ESTA LÍNEA AQUÍ ---
+            # Convierte el texto en un formato de Fecha/Hora que Python entienda
+            df['Fecha'] = pd.to_datetime(df['Fecha'], errors='coerce')
+            # -------------------------------
+            
             return df
         else:
             st.error(f"Error de conexion con GitHub: {respuesta.status_code}")
@@ -32,7 +38,6 @@ def cargar_datos():
     except Exception as e:
         st.error(f"Error interno: {e}")
         return None
-
 # ... (AQUÍ HACIA ABAJO DEJAS TU CÓDIGO DE LAS GRÁFICAS Y LA TABLA TAL COMO ESTABA) ...
 
 # --- 4. CONSTRUCCIÓN DE LA INTERFAZ VISUAL ---
