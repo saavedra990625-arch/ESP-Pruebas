@@ -1,43 +1,23 @@
-# --- 1. IMPORTACIÓN DE LIBRERÍAS (Las herramientas que vamos a usar) ---
-import streamlit as st       # Se encarga de crear toda la interfaz web (botones, textos, diseño).
-import pandas as pd          # Es como un "Excel" para Python. Organiza los datos en filas y columnas.
-import plotly.express as px  # La librería "mágica" para hacer las gráficas interactivas.
-import requests              # Sirve para entrar a internet y descargar cosas 
-import io                    # Ayuda a leer el texto que descargamos de internet como si fuera un archivo físico.
-import time                  # Nos permite manejar el tiempo, como hacer pausas o saber la hora actual.
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+import requests
+import io
+import time
 
 # ========== CONFIGURACION ==========
-st.set_page_config(page_title="Monitor ESP32", layout="wide")
+st.set_page_config(page_title="Panel de Control en Vivo - Monitoreo ESP32", layout="wide")
 
-# Si GitHub canceló tu token por seguridad, puedes dejarlo en blanco así: "" (si tu repo es público)
-TOKEN = " " 
-REPO = "saavedra990625-arch/ESP-Pruebas"
-PATH = "datos/reporte_esp32.csv"
-BRANCH = "main" # <--- DEBE SER MAIN
-URL_RAW = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{PATH}"
+# Usamos directamente la URL cruda (Raw) y pública, sin tokens ni variables extra
+URL_RAW = "https://raw.githubusercontent.com/saavedra990625-arch/ESP-Pruebas/main/datos/reporte_esp32.csv"
 
-# Ponemos el título principal en nuestra página web
-st.title("Panel de Control en Vivo - Monitoreo ESP32")
-
-# --- 3. FUNCIÓN PARA DESCARGAR Y PREPARAR LOS DATOS ---
+# ========== FUNCION PARA DESCARGAR DATOS ==========
 def cargar_datos():
-    # Creamos un "pase" usando tu TOKEN para que GitHub nos deje ver el archivo
-    headers = {'Authorization': f'token {TOKEN}'}
-    
-    # Truco informático: Le agregamos la hora actual al final del enlace. 
-    # Esto engaña a internet para que siempre descargue la versión más nueva y no una vieja guardada en memoria.
-    url_sin_cache = f"{URL_RAW}?t={int(time.time())}"
-    
-    try: # Intentamos hacer lo siguiente:
-        # Vamos a internet y traemos la información
-        respuesta = requests.get(url_sin_cache, headers=headers)
+    try:
+        # Hacemos la petición totalmente pública, SIN 'headers' ni contraseñas
+        respuesta = requests.get(URL_RAW)
         
-        # El código "200" en internet significa "Todo salió perfecto"
         if respuesta.status_code == 200:
-            
-            # Usamos Pandas (pd) para leer el texto que descargamos.
-            # sep=r'\s*;\s*' le dice: "Corta los datos cada vez que veas un punto y coma (;)"
-            # names=[...] le pone título a cada columna para que sepamos qué es qué.
             df = pd.read_csv(
                 io.StringIO(respuesta.text), 
                 sep=r'\s*;\s*', 
@@ -45,20 +25,15 @@ def cargar_datos():
                 header=None, 
                 names=['Fecha', 'Voltaje (V)', 'Corriente (mA)']
             )
-            
-            # Convertimos la columna de texto de fecha a un formato de Fecha real que Python entienda
-            df['Fecha'] = pd.to_datetime(df['Fecha'])
-            
-            # Devolvemos la tabla de datos ordenada de más vieja a más nueva
-            return df.sort_values(by='Fecha')
+            return df
         else:
-            # Si el código no es 200, mostramos un error rojo en la pantalla
             st.error(f"Error de conexion con GitHub: {respuesta.status_code}")
             return None
-            
-    except Exception as e: # Si ocurre cualquier otro desastre (como que te quedes sin internet):
-        st.error(f"Excepcion al leer los datos: {e}")
+    except Exception as e:
+        st.error(f"Error interno: {e}")
         return None
+
+# ... (AQUÍ HACIA ABAJO DEJAS TU CÓDIGO DE LAS GRÁFICAS Y LA TABLA TAL COMO ESTABA) ...
 
 # --- 4. CONSTRUCCIÓN DE LA INTERFAZ VISUAL ---
 
