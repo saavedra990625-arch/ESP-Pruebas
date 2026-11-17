@@ -1,1 +1,2 @@
-
+fecha_utc,id_nodo,seq,voltaje_v,corriente_ma,potencia_mw,potencia_w,rssi_dbm,snr_db
+2026-11-17T03:45:02.555Z,1,62,4.41,367.64,1621.29,1.6213,-67,9.25
